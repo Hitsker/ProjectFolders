@@ -1646,6 +1646,7 @@ MonoBehaviour:
   _legs:
   - {fileID: 4693025353262614}
   - {fileID: 4710508773403232}
+  _hair: {fileID: 137537602149001370}
 --- !u!1 &1257730882728438
 GameObject:
   m_ObjectHideFlags: 0
