@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Task
@@ -12,9 +13,11 @@ namespace Task
         private CharactersConfig config;
 
         private Character _currentCharacter;
+        private List<CharacterHairButton> _hairButtons;
   
         private void Start()
         {
+            _hairButtons=new List<CharacterHairButton>();
             config = Resources.Load<CharactersConfig>("CharactersConfig");
             var names = config.Characters;
             
@@ -43,6 +46,13 @@ namespace Task
 
         public void SetupHairButtons(Texture2D[] textures)
         {
+
+            foreach (var button in _hairButtons)
+            {
+                Destroy(button.gameObject);
+            }
+            _hairButtons.Clear();
+            
             if (textures==null)
             {
                 return;
@@ -52,6 +62,7 @@ namespace Task
             {
                 var btn = Instantiate(_characterHairButton, _characterHairButton.transform.parent);
                 btn.Setup(tex, OnHairButton);
+                _hairButtons.Add(btn);
             }
       
             baseButton.gameObject.SetActive(false);
