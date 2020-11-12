@@ -12,6 +12,8 @@ namespace Task
         
         public Texture2D[] LoadHair(string charId)
         {
+            _textures=new List<Texture2D>();
+            
             var path = Path.Combine(Application.streamingAssetsPath, "Character");
             path = Path.Combine(path, charId);
             path = Path.Combine(path, "hair");
